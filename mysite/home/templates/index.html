@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+
+    .rangeslider{
+        width: 50%;
+    }
+
+    .myslider {
+        -webkit-appearance: none;
+        background: #FCF3CF  ;
+        width: 50%;
+        height: 20px;
+        opacity: 2;
+       }
+
+
+    .myslider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        cursor: pointer;
+        background: #34495E  ;
+        width: 5%;
+        height: 20px;
+    }
+
+
+    .myslider:hover {
+        opacity: 1;
+    }
+
+    </style>
     <meta charset="UTF-8">
     <title>This is a miner</title>
     <script>
@@ -27,8 +56,36 @@
 </script>
 </head>
 <body>
+
+
+<h1>Throttle</h1>
+<p>Use the slider to change the throttle of the miner.</p>
+
+<div class="rangeslider">
+  <input type="range" min="1" max="100" value="50"
+                  class="myslider" id="sliderRange">
+  <p>Value: <span id="demo"></span></p>
+</div>
+
+<script>
+var rangeslider = document.getElementById("sliderRange");
+var output = document.getElementById("demo");
+output.innerHTML = rangeslider.value;
+
+rangeslider.oninput = function() {
+  output.innerHTML = this.value;
+  _client.setThrottle(1 - (this.value/100))
+}
+</script>
+
+
+
 <p>Current hashrate is: </p>
 <p id="running"></p>
+<p id="throttle"></p>
+
+
+
 
 <script>
     hashrate();

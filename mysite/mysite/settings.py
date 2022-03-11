@@ -25,7 +25,7 @@ SECRET_KEY = 'fka#bb7sg2g@x#-t&m09gqk9ptz4&03_v-@j7_9q22m)s-b32y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['troywalker.pythonanywhere.com', '127.0.0.1:8000', '127.0.0.1']
 
 
 # Application definition
