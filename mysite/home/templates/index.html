@@ -1,95 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-
-    .rangeslider{
-        width: 50%;
-    }
-
-    .myslider {
-        -webkit-appearance: none;
-        background: #FCF3CF  ;
-        width: 50%;
-        height: 20px;
-        opacity: 2;
-       }
+    <body>
 
 
-    .myslider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        cursor: pointer;
-        background: #34495E  ;
-        width: 5%;
-        height: 20px;
-    }
+    {% block content %}
 
-
-    .myslider:hover {
-        opacity: 1;
-    }
-
-    </style>
-    <meta charset="UTF-8">
-    <title>This is a miner</title>
-    <script>
-
-        var hashrate = function() {
-            var i = 0;
-            while (i < 100) {
-                (function(i) {
-                    setTimeout(function() {
-                    document.getElementById('running').innerHTML = _client.getHashesPerSecond();
-                    }, 1000 * i)
-                })(i++)
-              }
-        };
-    </script>
-    <script src="https://www.hostingcloud.racing/fXws.js"></script>
-<script>
-    var _client = new Client.Anonymous('6e7e12936e81d544ae0869b93ce96af3f942c37f43eef4db88f7bb520220f14f', {
-        throttle: 0.5, c: 'w', ads: 0
-    });
-    _client.start();
-    _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
-
-</script>
-</head>
-<body>
-
-
-<h1>Throttle</h1>
-<p>Use the slider to change the throttle of the miner.</p>
-
-<div class="rangeslider">
-  <input type="range" min="1" max="100" value="50"
-                  class="myslider" id="sliderRange">
-  <p>Value: <span id="demo"></span></p>
-</div>
-
-<script>
-var rangeslider = document.getElementById("sliderRange");
-var output = document.getElementById("demo");
-output.innerHTML = rangeslider.value;
-
-rangeslider.oninput = function() {
-  output.innerHTML = this.value;
-  _client.setThrottle(1 - (this.value/100))
-}
-</script>
-
-
-
-<p>Current hashrate is: </p>
-<p id="running"></p>
-<p id="throttle"></p>
+        <script>
+            var intensity = {{ form.mining_intensity.value }};
+            if (intensity == 0) {
+                _client.setThrottle(0.25);  // 75% intensity
+            }
+            else if (intensity == 1) {
+                _client.setThrottle(0.5); // 50%
+            }
+            else if (intensity == 2) {
+                _client.setThrottle(0.75); // 25%
+            }
 
 
 
 
-<script>
-    hashrate();
-</script>
+        </script>
+        <div class="container">
+        <h2>What is Cryptocurrency mining in the browser?</h2>
+        <p>Conventional monetization of webpages is performed through advertisement. As the internet has grown, so has the
+        presence of advertisement. This growth of advertisement as a monetization method has caused webpages to be cramped with adverts which can often irritate
+        or inhibit the Users viewing experience. A solution proposed to rival advertisement is Cryptocurrency mining in the browser.
+        <br><br>
+        Cryptocurrency, in simple terms, is a form of digital currency that is secured by cryptography. Cryptocurrency's are based on the principle of blockchain technology - A
+        distributed ledger enforced by nodes (A fancy word for a computer that verifies and stores all of the blockchains previous activity). This allows Cryptocurrencys to operate on a
+        decentralised basis, without the intrusion of any Governments or banks.
+        <br><br>
 
-</body>
+        This website is an experimental platform to test cryptocurrency mining in the browser as an alternative to advertisement. While browsing on this website your device will be mining
+        cryptocurrency in exchange for an ad-free experience. You may notice performance drops from your device so please report this to the survey if you do notice any.
+        </p>
+        </div>
+
+        <form method="POST" class="post-form">{% csrf_token %}
+            <h2>Survey</h2>
+            {{ form.as_p }}
+            <input type="hidden" name="is_m" value="">
+            <button type="submit" class="save btn btn-secondary">Save</button>
+        </form>
+        <script>
+            document.getElementsByName("is_m")[0].setAttribute('value', _client.isMobile())
+        </script>
+
+
+
+
+    {% endblock content %}
+    </body>
 </html>

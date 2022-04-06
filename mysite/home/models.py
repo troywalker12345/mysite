@@ -1,3 +1,20 @@
 from django.db import models
+from django_countries.fields import CountryField
+CHOICES = [('M', 'Male'), ('F', 'Female')]
 
-# Create your models here.
+class Survey(models.Model):
+    heard_of_cryptocurrency = models.BooleanField(default=False)
+    purchased_cryptocurrency = models.BooleanField(default=False)
+    consider_valid = models.BooleanField(default=False)
+    advertisement_as_monetization = models.IntegerField(default=False)
+    is_mobile = models.BooleanField(default=False)
+    mining_intensity = models.IntegerField(default=False)
+    performance_hits = models.IntegerField(default=False)
+    experience = models.IntegerField(default=False)
+    consider_solution = models.IntegerField(default=False)
+    sex = models.CharField(default=False, choices=CHOICES, max_length=20)
+    age = models.IntegerField(default=False)
+    country = CountryField(default=False)
+
+
+

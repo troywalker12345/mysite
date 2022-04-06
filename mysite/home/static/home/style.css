@@ -1,0 +1,42 @@
+    body {
+        background-color: #0202d7;
+    }
+
+
+    form {
+            background-color: #1a9dd9;
+            max-width: 70%;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        /* Styling form-control Class */
+        .form-control {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+    p { color: #f8f8f8; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 24px; text-align: left }
+
+    .container {
+        background-color: #1a9dd9;
+        max-width: 70%;
+        margin: 50px auto;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+
+    }
+
+    h1 { color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 55px; font-weight: 800; line-height: 72px; margin: 0 0 50px; text-align: center; text-transform: uppercase; }
+
+    h2 { color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 30px; font-weight: 800; line-height: 36px; margin: 0 0 24px; text-align: center; }
+
+    .hash_box {
+        background-color: #1a9dd9;
+        max-width: 70%;
+        margin: 50px auto;
+        padding: 30px 20px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.4);
+    }
