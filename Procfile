@@ -1,3 +1,3 @@
-release: python manage.py migrate
-release: python manage.py makemigrations
+release: python mysite/manage.py migrate
+release: python mysite/manage.py makemigrations
 web: gunicorn --chdir mysite mysite.wsgi
