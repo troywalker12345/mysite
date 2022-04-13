@@ -19,5 +19,5 @@ requests==2.19.1
 s3transfer==0.2.0
 six==1.12.0
 urllib3==1.23
-whitenoise==4.1.2
+whitenoise==5.0.1
 django-on-heroku==1.1.2

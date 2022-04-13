@@ -3,6 +3,7 @@ from django_countries.fields import CountryField
 CHOICES = [('M', 'Male'), ('F', 'Female')]
 
 class Survey(models.Model):
+    id = models.AutoField(primary_key=True)
     heard_of_cryptocurrency = models.BooleanField(default=False)
     purchased_cryptocurrency = models.BooleanField(default=False)
     consider_valid = models.BooleanField(default=False)
@@ -12,7 +13,7 @@ class Survey(models.Model):
     performance_hits = models.IntegerField(default=False)
     experience = models.IntegerField(default=False)
     consider_solution = models.IntegerField(default=False)
-    sex = models.CharField(default=False, choices=CHOICES, max_length=20)
+    sex = models.CharField(default=False, choices=CHOICES, max_length=200)
     age = models.IntegerField(default=False)
     country = CountryField(default=False)
 
