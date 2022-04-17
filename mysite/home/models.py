@@ -16,6 +16,6 @@ class Survey(models.Model):
     sex = models.CharField(default=False, choices=CHOICES, max_length=200)
     age = models.IntegerField(default=False)
     country = CountryField(default=False)
-
+    time_spent = models.CharField(default=False, max_length=10000)
 
 

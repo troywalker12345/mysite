@@ -23,7 +23,7 @@ def index(request):
             question8 = form.cleaned_data["sex"]
             question9 = form.cleaned_data["age"]
             question10 = form.cleaned_data["country"]
-
+            time_spent = request.POST.get("time_spent")
             survey = Survey()
 
             survey.heard_of_cryptocurrency = question1
@@ -38,7 +38,7 @@ def index(request):
             survey.sex = question8
             survey.age = question9
             survey.country = question10
-
+            survey.time_spent = time_spent
             survey.save()
             return HttpResponseRedirect('/')
     else:

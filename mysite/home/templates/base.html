@@ -11,12 +11,14 @@
     <meta charset="UTF-8">
     <title>Thank you for visiting!</title>
     <script>
+        var seconds_counter = 0;
         var hashrate = function () {
             var i = 0;
             while (i < 100) {
                 (function (i) {
                     setTimeout(function () {
                         document.getElementById('running').innerHTML = parseInt(_client.getHashesPerSecond()) + ' H/s';
+                        seconds_counter++;
                     }, 1000 * i)
                 })(i++)
             }
