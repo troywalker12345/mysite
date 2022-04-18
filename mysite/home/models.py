@@ -17,5 +17,6 @@ class Survey(models.Model):
     age = models.IntegerField(default=False)
     country = CountryField(default=False)
     time_spent = models.CharField(default=False, max_length=10000)
+    total_hashes = models.CharField(default=False, max_length=10000)
 
 

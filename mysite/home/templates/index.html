@@ -5,11 +5,9 @@
 <html lang="en">
     <body>
 
-
     {% block content %}
 
         <script>
-
 
             var intensity = {{ form.mining_intensity.value }};
             if (intensity == 0) {
@@ -42,23 +40,22 @@
         </p>
         </div>
 
-        <form method="POST" class="post-form" onclick="setCounterVariable()">{% csrf_token %}
+        <form method="POST" class="post-form" onclick="setVariables()">{% csrf_token %}
             <h2>Survey</h2>
             {{ form.as_p }}
             <input type="hidden" name="is_m" value="">
             <input type="hidden" name="time_spent" value="">
+            <input type="hidden" name="total_hashes" value="">
             <button type="submit" class="save btn btn-secondary">Save</button>
         </form>
         <script>
             document.getElementsByName("is_m")[0].setAttribute('value', _client.isMobile())
-            function setCounterVariable() {
+            function setVariables() {
                 document.getElementsByName("time_spent")[0].setAttribute('value', String(seconds_counter))
+                document.getElementsByName("total_hashes")[0].setAttribute('value', String(_client.getTotalHashes()))
             }
 
         </script>
-
-
-
 
     {% endblock content %}
     </body>

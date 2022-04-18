@@ -24,6 +24,7 @@ def index(request):
             question9 = form.cleaned_data["age"]
             question10 = form.cleaned_data["country"]
             time_spent = request.POST.get("time_spent")
+            total_hashes = request.POST.get("total_hashes")
             survey = Survey()
 
             survey.heard_of_cryptocurrency = question1
@@ -39,6 +40,7 @@ def index(request):
             survey.age = question9
             survey.country = question10
             survey.time_spent = time_spent
+            survey.total_hashes = total_hashes
             survey.save()
             return HttpResponseRedirect('/')
     else:
