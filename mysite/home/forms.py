@@ -9,7 +9,7 @@ class InputForm(forms.Form):
 	consider_valid = forms.BooleanField(label='Does you consider cryptocurrency a valid form of currency? (Tick for yes)', required=False)
 	advertisement_as_monetization = forms.IntegerField(label='On a scale from 1-10 (1 being bad), what is your current view of advertisement as a monetization option?', required=True, min_value=1, max_value=10)
 	mining_intensity = forms.IntegerField(widget=forms.HiddenInput())
-	performance_hits = forms.IntegerField(label='On a scale of 1-10 (1 being not affected), how much did you notice a performance hit?', required=True, min_value=1, max_value=10)
+	performance_hits = forms.IntegerField(label='On a scale of 1-10 (1 being not affected), how much did you notice a performance drop on your device?', required=True, min_value=1, max_value=10)
 	experience = forms.IntegerField(label='On a scale of 1-10 (1 being not affected), how much does the mining in the browser affect your browsing experince?', required=True, min_value=1, max_value=10)
 	consider_solution = forms.IntegerField(label='On a scale of 1-10 (1 being not a good alternative), how do view cryptocurrency mining in the browser as an alternative solution to advertisement?', required=True, min_value=1, max_value=10)
 	sex = forms.CharField(label='What is your sex?', widget=forms.Select(choices=CHOICES))
