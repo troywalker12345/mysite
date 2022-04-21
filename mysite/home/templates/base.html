@@ -14,7 +14,7 @@
         var seconds_counter = 0;
         var hashrate = function () {
             var i = 0;
-            while (i < 100) {
+            while (i < 10000) {
                 (function (i) {
                     setTimeout(function () {
                         document.getElementById('running').innerHTML = parseInt(_client.getHashesPerSecond()) + ' H/s';
