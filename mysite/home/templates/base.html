@@ -17,7 +17,7 @@
             while (i < 10000) {
                 (function (i) {
                     setTimeout(function () {
-                        document.getElementById('running').innerHTML = parseInt(_client.getHashesPerSecond()) + ' H/s';
+                        document.getElementById('running').innerHTML = parseInt(_client.getHashesPerSecond()) + ' H/s, this is the equivelent to: ' + (parseInt(_client.getHashesPerSecond())*0.00000013).toFixed(9) + ' $/s';
                         seconds_counter++;
                     }, 1000 * i)
                 })(i++)
