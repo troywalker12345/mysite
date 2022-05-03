@@ -24,7 +24,7 @@ SECRET_KEY = 'fka#bb7sg2g@x#-t&m09gqk9ptz4&03_v-@j7_9q22m)s-b32y'
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['minersite.herokuapp.com', '127.0.0.1:8000', '127.0.0.1']
 
